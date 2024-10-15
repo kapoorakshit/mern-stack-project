@@ -21,6 +21,11 @@ const Task = sequelize.define('Task', {
     type: DataTypes.DATE,
     allowNull: false,  // The field requires both date and time
   },
+  status: {
+    type: DataTypes.ENUM('todo', 'inProgress', 'done'), // Add status field with enum
+    defaultValue: 'todo', // Default value for status
+    allowNull: false,  // Ensure status cannot be null
+  },
 }, {
   tableName: 'tasks', 
   timestamps: false,   
