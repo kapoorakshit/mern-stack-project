@@ -1,5 +1,7 @@
 const express = require('express');
 const http = require('http');
+require('dotenv').config();
+
 const crudController = require('./src/controllers/crud_controller');
 const userController = require('./src/controllers/user_controller');
 const googleLogin = require('./src/controllers/google_login_controller.js');
