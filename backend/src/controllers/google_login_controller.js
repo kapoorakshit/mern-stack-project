@@ -1,8 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
-const CLIENT_ID = '468307614044-fkadkiecnbobe03n2u7i4gvv7opknk24.apps.googleusercontent.com';
-const CLIENT_SECRET = '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';
+const CLIENT_ID = '';
+const CLIENT_SECRET = '';
 const REDIRECT_URI = 'http://localhost:3000/auth/google/callback';
 router.get('/auth/google', (req, res) => {
   const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=profile email`;
