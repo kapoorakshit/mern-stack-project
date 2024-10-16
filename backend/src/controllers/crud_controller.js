@@ -5,6 +5,8 @@ const { isValid } = require('date-fns'); // Import date-fns for date validation
 // PostgreSQL connection configuration
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
+  idleTimeoutMillis: 0,
+  connectionTimeoutMillis: 0,
 })
 pool.connect((err, client, release) => {
   if (err) {
