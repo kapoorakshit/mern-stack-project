@@ -3,11 +3,24 @@ const { Pool } = require('pg');
 // Create a new task (POST /tasks)
 const { isValid } = require('date-fns'); // Import date-fns for date validation
 // PostgreSQL connection configuration
+const { Sequelize, DataTypes } = require('sequelize');
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
   idleTimeoutMillis: 0,
   connectionTimeoutMillis: 0,
 })
+const sequelize = new Sequelize(process.env.POSTGRES_URL, {
+  dialect: 'postgres',
+});
+sequelize.authenticate()
+  .then(() => {
+    console.log('Connection to PostgreSQL has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
+
 pool.connect((err, client, release) => {
   if (err) {
     return console.error('Error acquiring client', err.stack);
