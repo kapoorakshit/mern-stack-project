@@ -33,5 +33,6 @@ app.delete('/tasks/:id', verifyToken, crudController.deleteTask);
 const server = http.createServer(app);
 server.listen(process.env.PORT, function () {
   console.log("hii");
+  console.log("hii");
   console.log('App listening on port 3000!');
 });
