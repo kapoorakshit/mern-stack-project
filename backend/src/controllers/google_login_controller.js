@@ -25,10 +25,10 @@ router.get('/auth/google/callback', async (req, res) => {
     const { data: profile } = await axios.get('https://www.googleapis.com/oauth2/v1/userinfo', {
       headers: { Authorization: `Bearer ${access_token}` },
     });
-    console.log('Login successful:', profile);
+    console.log('Login successful by google:', profile);
     return res.status(200).json({
         message: 'Login successful',
-        profile, // Include profile data here if needed
+        token: access_token, // Include profile data here if needed
       });
   } catch (error) {
 
